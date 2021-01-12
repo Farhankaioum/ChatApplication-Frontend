@@ -2,35 +2,16 @@
     <div class="container">
       <a class="navbar-brand" [routerLink]="['/home']">Chatting App</a>
   
-    <!-- <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/members']">Matches</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/lists']">Lists</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/messages']">Messages</a>
-      </li>
-    </ul> -->
-  
-    <!-- <div *ngIf="loggedIn()" class="dropdown" dropdown>
-      <span class="mr-1">
-        <img src="{{photoUrl || '../../assets/userIcon.jpg' }}" alt=""/>
-      </span>
-      <a class="dropdown-toggle text-light" dropdownToggle>
-        Welcome {{ authService.decodeToken.unique_name | titlecase}}
+     <div *ngIf="loggedIn()" class="dropdown" ngbDropdown>
+      <a class="dropdown-toggle text-light" ngbDropdownToggle>
+        Welcome User
       </a>
-      <div class="dropdown-menu mt-3" *dropdownMenu>
-  ng       <a class="dropdown-item" [routerLink]="['/member/edit']">
-          <i class="fa fa-user"></i> Edit Profile
-        </a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#" (click)="logOut()"><i class="fa fa-sign-out"></i> LogOut</a>
+      <div class=" mt-3" ngbDropdownMenu>
+          <a ngbDropdownItem (click)="logOut()"><i class="fa fa-sign-out"></i> LogOut</a>
       </div>
-    </div> -->
+    </div>
   
-    <form #loginForm="ngForm" class="form-inline my-2 my-lg-0">
+    <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
       <input class="form-control mr-sm-2" type="email" name="email"
        placeholder="Enter your email.." required [(ngModel)]= "model.email" >
       <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
