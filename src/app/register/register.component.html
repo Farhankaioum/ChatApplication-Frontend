@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <form #registrationForm="ngForm" class="my-2 my-lg-0">
+                <h2 class="text-center text-primary mt-4">Sign Up </h2>
+                <hr>
+                <div class="form-group">
+                    <label for="firstname">First name</label>
+                    <input class="form-control mr-sm-2" type="text" name="firstname" id="firstname"
+                    placeholder="Enter your firstname" required [(ngModel)]= "model.firstname" >
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last name</label>
+                    <input class="form-control mr-sm-2" type="text" name="lastname" id="lastname"
+                    placeholder="Enter your lastname" required [(ngModel)]= "model.lastname" >
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input class="form-control mr-sm-2" type="email" name="email" id="email"
+                    placeholder="Enter your email.." required [(ngModel)]= "model.email" >
+                </div>
+                
+                <button [disabled]="!registrationForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Register</button>
+              </form>
+        </div>
+    </div>
+    
+</div>
