@@ -1,1 +1,17 @@
-<p>user works!</p>
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-lg-2 col-md-3 col-sm-6" *ngFor="let user of users">
+           <div class="card mb-4" style="min-height: 250px;">
+               <div class="card-header">
+                    {{user.firstName + " " + user.lastName}}
+               </div>
+               <div class="card-body">
+                    {{user.email}}
+               </div>
+               <div class="card-footer">
+                   <a class="btn btn-info">More details</a>
+               </div>
+           </div>
+        </div>
+    </div>
+</div>
