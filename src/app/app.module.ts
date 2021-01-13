@@ -10,6 +10,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthService} from './_services/auth.service';
+import { UserService } from './_services/user.service';
+import { UserComponent } from './user/user.component';
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -19,7 +21,8 @@ export function tokenGetter(){
   declarations: [
     AppComponent,
     HeaderComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ export function tokenGetter(){
     })
   ],
   providers: [
-    AuthService
+    AuthService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
