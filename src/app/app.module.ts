@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,9 @@ import { RegisterComponent } from './register/register.component';
 import { AuthService} from './_services/auth.service';
 import { UserService } from './_services/user.service';
 import { UserComponent } from './user/user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserDetailsComponent } from './user/user-details/user-details.component';
+import { MessagesComponent } from './messages/messages.component';
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -22,7 +26,9 @@ export function tokenGetter(){
     AppComponent,
     HeaderComponent,
     RegisterComponent,
-    UserComponent
+    UserComponent,
+    UserDetailsComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -30,13 +36,15 @@ export function tokenGetter(){
     NgbModule,
     FormsModule,
     HttpClientModule,
+    TabsModule.forRoot(),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
         allowedDomains: ['localhost:44376'],
         disallowedRoutes: ['localhost:44376/api/auth']
       }
-    })
+    }),
+    BrowserAnimationsModule
   ],
   providers: [
     AuthService,

@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="tab-panel">
+                <tabset class="member-tabset" #memberTabs>
+                  <tab heading="About {{user.firstName}}">
+                    <h4>Description</h4>
+                    <p>Name: {{user.firstName + " " + user.lastName}}</p>
+                    <h4>Looking For</h4>
+                  </tab>
+                  <tab heading="Messages">
+                    <app-messages></app-messages>
+                  </tab>
+                </tabset>
+              </div>
+        </div>
+    </div>
+</div>
